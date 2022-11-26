@@ -1,0 +1,55 @@
+@import "https://unpkg.com/open-props";
+@import "https://unpkg.com/open-props/normalize.min.css";
+@import "https://unpkg.com/open-props/buttons.min.css";
+
+body {
+  padding: var(--size-fluid-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-fluid-2);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-fluid-2);
+}
+
+fieldset {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: var(--size-fluid-2);
+  row-gap: var(--size-fluid-1);
+}
+
+pre {
+  background-color: var(--surface-2);
+  padding-inline: var(--size-2);
+  padding-block: var(--size-1);
+  box-shadow: var(--shadow-2);
+  border-radius: var(--radius-2);
+}
+
+.warning {
+  background-color: var(--orange-8);
+}
+
+.error {
+  background-color: var(--red-8);
+}
+
+.success {
+  background-color: var(--green-8);
+}
+
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+#map {
+  block-size: 100vh;
+  background-color: var(--surface-2);
+}

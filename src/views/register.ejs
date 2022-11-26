@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"  href="/css/style.css">
+  </head>
+  <body>
+    <h1>Register</h1>
+
+    <form id="form" action="/point/<%= uuid %>" method="post">
+      <fieldset>
+        <legend>Point</legend>
+        <label for="uuid">Uuid</label>
+        <input id="uuid" value="<%= uuid %>" name="uuid" readonly required tabindex="-1" />
+
+        <label for="name">name</label>
+        <input id="name" type="text" name="name" required>
+      </fieldset>
+
+      <fieldset>
+        <legend>Location</legend>
+
+        <label for="lat">Latitude</label>
+        <input id="lat" name="latitude" readonly tabindex="-1" required/>
+
+        <label for="long">Longitude</label>
+        <input id="long" name="longitude" readonly tabindex="-1" required/>
+      </fieldset>
+
+      <input type="submit" value="Register" id="submit"/>
+    </form>
+
+    <script>
+      const submit = document.getElementById('submit')
+      const lat = document.getElementById('lat');
+      const long = document.getElementById('long');
+      const form = document.getElementById('form');
+
+      function updateCoords({ latitude, longitude }) {
+        lat.value = latitude;
+        long.value = longitude;
+      }
+
+      navigator.geolocation.watchPosition(({ coords }) => updateCoords(coords));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+mapfile -t names < names.txt
+
+for name in "${names[@]}"
+do
+  echo "https://capture-point.thilacoloma.be/capture/$(uuidgen)?name=$name" | qrencode -o "out/$name.png" -l H -s 10
+  composite -gravity center v2.png "out/$name.png" "out/$name.png"
+  convert "out/$name.png" -gravity North -pointsize 30 -font FreeMono-bold -annotate +0+5 "$name" "out/$name.png"
+done

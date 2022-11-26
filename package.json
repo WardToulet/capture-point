@@ -1,0 +1,18 @@
+{
+  "name": "capture-point",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/formbody": "^7.3.0",
+    "@fastify/static": "^6.5.1",
+    "@fastify/view": "^7.3.0",
+    "ejs": "^3.1.8",
+    "fastify": "^4.10.2",
+    "lowdb": "^5.0.5",
+    "typescript": "^4.9.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
