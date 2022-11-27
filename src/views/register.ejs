@@ -37,6 +37,9 @@
       const lat = document.getElementById('lat');
       const long = document.getElementById('long');
       const form = document.getElementById('form');
+      const name = document.getElementById('name');
+
+      name.value = (new URLSearchParams(document.location.search)).get('name');
 
       function updateCoords({ latitude, longitude }) {
         lat.value = latitude;

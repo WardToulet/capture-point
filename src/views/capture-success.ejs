@@ -5,11 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet"  href="/css/style.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
   </head>
   <body class="success">
     <h1>Goed zo</h1>
-    <p>Dit is het juiste punt, ga nu naar het volend punt</p>
+    <p>Dit is het juiste punt, ga nu naar <strong><%= name %></strong></p>
 
-    TODO: add map with next point
+    <script>
+      const map = L.map('map').setView([51.0279917,4.479401], 16);
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+
+      L.marker([<%= latitude %>, <%= longitude %>]).addTo(map);
+    </script>
+
   </body>
 </html>

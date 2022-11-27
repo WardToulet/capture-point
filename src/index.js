@@ -103,7 +103,7 @@ const gameManager = new GameManager();
 /**
  * Serve the main page
  **/
-fastify.get('/', async (req, res) => res.view('no-game.ejs'));
+fastify.get('/', async (req, res) => res.view('index.ejs'));
 fastify.get('/map', async (req, res) => res.view('map.ejs'));
 
 // TODO: make this post requests
