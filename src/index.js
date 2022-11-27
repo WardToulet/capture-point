@@ -107,8 +107,9 @@ const gameManager = new GameManager();
 /**
  * Serve the main page
  **/
-fastify.get('/', async (req, res) => res.view('index.ejs'));
-fastify.get('/map', async (req, res) => res.view('map.ejs'));
+fastify.get('/', async (req, res) => res.view('index'));
+fastify.get('/', async (req, res) => res.view('dash'));
+fastify.get('/map', async (req, res) => res.view('map'));
 
 fastify.post('/game/start', async (req, res) => {
     gameManager.create(req.body.count);
