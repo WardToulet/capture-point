@@ -23,7 +23,7 @@
       fetch('/api/point')
         .then(res => res.json())
         .then(points => points.forEach(({ latitude, longitude, name }) => {
-          L.marker([latitude, longitude]).addTo(map).bindPopup(name);
+          L.marker([latitude, longitude]).addTo(map).bindPopup(name).openPopup();
         }));
     </script>
   </body>
