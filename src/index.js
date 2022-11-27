@@ -62,7 +62,7 @@ class Game {
         this._state = 'victory';
         return 'victory';
       } else {
-        console.log("== CAPTURED ==\n" + this._points[this._state - 1].name + "\n== CAPTURED ==");
+        console.log("== CAPTURED ==\n" + this._points[this._progress - 1]?.name + "\n== CAPTURED ==");
         return 'captured';
       }
     } else {
