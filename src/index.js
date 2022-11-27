@@ -5,6 +5,7 @@ const fastify = require('fastify')();
 const fastifyView = require('@fastify/view');
 const FastfiyStatic = require('@fastify/static');
 const FastfiyFormBody = require('@fastify/formbody');
+const FastifyWebsocket = require('@fastify/websocket');
 const ejs = require('ejs');
 
 class PointManager {
@@ -61,6 +62,7 @@ class Game {
         this._state = 'victory';
         return 'victory';
       } else {
+        console.log("== CAPTURED ==\n" + this._points[this._state - 1].name + "\n== CAPTURED ==");
         return 'captured';
       }
     } else {
@@ -168,6 +170,12 @@ fastify.post('/point/*', async (req, res) => {
 
 fastify.get('/api/point', async (req, res) => pointManager.getAllPoints());
 
+fastify.get('/ws', { websocket: true }, (connection, req) => {
+  connection.socket.on('join', _ => {
+    
+  })
+});
+
 fastify.register(FastfiyFormBody);
 fastify.register(FastfiyStatic, {
   root: path.join(__dirname, 'static')
@@ -176,6 +184,9 @@ fastify.register(fastifyView, {
   root: path.join(__dirname, 'views'),
   engine: { ejs },
 })
+fastify.register(FastifyWebsocket, {
+    options: { maxPayload: 1048576 }
+});
 
 const start = async () => {
   try {
