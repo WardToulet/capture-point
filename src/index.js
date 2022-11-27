@@ -24,7 +24,7 @@ class PointManager {
   }
 
   getPoint(uuid) {
-    return this.points.find(p => p.uuid === uuid);
+    return this.points?.find(p => p.uuid === uuid);
   }
 }
 
