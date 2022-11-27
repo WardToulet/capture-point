@@ -77,6 +77,10 @@ class Game {
   get state() {
     return this._state;
   }
+
+  get nextPoint() {
+    return this._points[this._progress];
+  }
 }
 
 class GameManager {
@@ -146,7 +150,7 @@ fastify.get('/capture/:uuid', async (req, res) => {
     }
 
     if (result === 'captured') {
-      return res.view('capture-success', point);
+      return res.view('capture-success', gameManager._game?.nextPoint);
     }
 
     if (result === 'victory') {
