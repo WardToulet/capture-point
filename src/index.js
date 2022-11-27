@@ -36,7 +36,7 @@ class Game {
   _progress
   _state
   _lastCapture
-  _timeout = 1000 * 60 * 10;
+  _timeout = 1000 * 60 * 15;
 
   constructor(count) {
     // Get random points
