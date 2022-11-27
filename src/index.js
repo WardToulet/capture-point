@@ -110,8 +110,9 @@ const gameManager = new GameManager();
 fastify.get('/', async (req, res) => res.view('index.ejs'));
 fastify.get('/map', async (req, res) => res.view('map.ejs'));
 
-// TODO: make this post requests
-fastify.get('/game/new/:count', async (req, res) => gameManager.create(req.params.count));
+fastify.post('/game/start', async (req, res) => {
+    gameManager.create(req.body.count);
+});
 
 fastify.get('/capture/:uuid', async (req, res) => {
   const uuid = req.params.uuid;
